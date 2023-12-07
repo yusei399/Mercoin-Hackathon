@@ -5,7 +5,44 @@ import { red } from '@mui/material/colors';
 import Image from 'next/image';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 
-
+const data =[
+	{
+		image : "/葛葉.png",
+		title: "EXゲーマーズ5周年記念",
+		content: "【EXゲーマーズ5周年記念】マウスパッド",
+		price: "0.001token",
+	},
+	{
+		image : "/叶.jpg",
+		title: "EXゲーマーズ5周年記念",
+		content: "【EXゲーマーズ5周年記念】ステッカーセット",
+		price : "0.001token",
+	},
+	{
+		image : "/魔界のりりむ.jpg",
+		tite : "EXゲーマーズ5周年記念",
+		content: "【EXゲーマーズ5周年記念】ヘアクリップ",
+		price: "0.001token",
+	},
+	{
+		image: "/キズナアイ.jpg",
+		title: "EXゲーマーズ5周年記念",
+		content: "【EXゲーマーズ5周年記念】アクリルスタンド",
+		price: "0.001token",
+	},
+	{
+		image : "/宝鐘マリン.jpg",
+		title: "EXゲーマーズ5周年記念",
+		content: "【EXゲーマーズ5周年記念】ランダムチェキ風カード",
+		price : "0.001token",
+	},
+	{
+		image : "/宝鐘マリン.jpg",
+		title: "にじフェス2023",
+		content: "【Kuzuha Solo Event ”Kaleidoscope”】B6アクリルパネル【にじフェス2023】",
+		price : "0.001token",
+	}
+]
 
 const Site = () => {
 	return (
@@ -22,12 +59,12 @@ const Site = () => {
 			<CardMedia
 				component="img"
 				height="194"
-				image=""
+				image="/葛葉.png"
 				alt="Paella dish"
 			/>
 			<CardContent>
 				<Typography>
-					test content
+					【EXゲーマーズ5周年記念】マウスパッド
 				</Typography>
 			</CardContent>
 			<CardActions disableSpacing>
@@ -40,3 +77,4 @@ const Site = () => {
 
 
 export default Site;
+
