@@ -13,9 +13,10 @@ import IconButton from "@mui/material/IconButton";
 import SendIcon from "@mui/icons-material/Send";
 import CurrencyYenIcon from "@mui/icons-material/CurrencyYen";
 import "../../styles/CommentForm.css";
+import { MenuItem, Select } from "@mui/material";
 
 const CommentForm = () => {
-  const [comments, setComments] = useState<string[]>([]);
+  const [comments, setComments] = useState<Array<{ text: string; amount?: number }>>([]);
   const [commentText, setCommentText] = useState<string>("");
   const [superChatAmount, setSuperChatAmount] = useState<string>("");
   const listRef = useRef(null);
@@ -27,14 +28,29 @@ const CommentForm = () => {
   }, [comments]);
 
   const addComment = (comment: string) => {
-    setComments([...comments, comment]);
+    setComments([...comments, { text: comment }]);
     setCommentText("");
   };
+  
   const sendSuperChat = (amount: number) => {
-    setComments([...comments, `${amount}円のスーパーチャット`]);
+    setComments([...comments, { text: `${amount}円のスーパーチャット`, amount }]);
     setSuperChatAmount("");
     console.log("スーパーチャットを送信しました");
   };
+
+  const getCommentStyle = (amount?: number) => {
+    if (!amount) return {}; // 通常のコメントの場合、特別なスタイルは適用しない
+  
+    // 金額に応じた背景色を返す
+    if (amount <= 1000) return { backgroundColor: 'lightblue' };
+    if (amount <= 5000) return { backgroundColor: 'lightgreen' };
+    return { backgroundColor: 'lightcoral' };
+  };
+
+const handleSuperChatChange = (event: React.ChangeEvent<{ name?: string; value: unknown }>) => {
+  setSuperChatAmount(event.target.value as string);
+};
+
 
   return (
     <div className="comment-container">
@@ -44,6 +60,7 @@ const CommentForm = () => {
           level="body-xs"
           textTransform="uppercase"
           sx={{ letterSpacing: "0.15rem" }}
+          fontSize={17}
         >
           チャット欄
         </Typography>
@@ -59,14 +76,14 @@ const CommentForm = () => {
           }}
         >
           {comments.map((comment, index) => (
-            <ListItem key={index} className="comment-list-item">
+            <ListItem key={index} className="comment-list-item" style={getCommentStyle(comment.amount)}>
               <ListItemDecorator>
                 <Avatar src="" />
               </ListItemDecorator>
               <ListItemContent>
-                <Typography level="user-name">じみー</Typography>
-                <Typography level="body-sm" noWrap>
-                  {comment}
+                <Typography level="user-name" fontSize={10}>じみー</Typography>
+                <Typography level="body-sm" noWrap fontSize={15}>
+                  {comment.text}
                 </Typography>
               </ListItemContent>
             </ListItem>
@@ -91,18 +108,26 @@ const CommentForm = () => {
         </IconButton>
       </div>
       <div className="superchat-form">
-        <TextField
+      <Select
           className="superchat-input"
-          label="金額を入力"
-          variant="outlined"
-          fullWidth
+          label="金額を選択"
           value={superChatAmount}
-          onChange={(e) => setSuperChatAmount(e.target.value)}
-        />
+          onChange={handleSuperChatChange}
+          displayEmpty
+          fullWidth
+          variant="outlined"
+        >
+          <MenuItem value=""><em>¥金額を選択</em></MenuItem>
+          <MenuItem value={"500"}>500円</MenuItem>
+          <MenuItem value={"1000"}>1000円</MenuItem>
+          <MenuItem value={"3000"}>3000円</MenuItem>
+          <MenuItem value={"5000"}>5000円</MenuItem>
+          <MenuItem value={"10000"}>10000円</MenuItem>
+        </Select>
         <IconButton
           className="superchat-button"
           color="primary"
-          onClick={() => sendSuperChat(superChatAmount)}
+          onClick={() => sendSuperChat(parseInt(superChatAmount))}
         >
           <CurrencyYenIcon />
         </IconButton>

@@ -1,7 +1,7 @@
 import Image from "next/image";
 import React from "react";
 import Button from "@mui/material/Button";
-import Chart from "@/app/components/chart/chart";
+import Chart from "@/frontend/app/components/chart/chart";
 
 const Vtuber = () => {
   return (
