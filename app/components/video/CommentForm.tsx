@@ -12,7 +12,7 @@ import Typography from "@mui/joy/Typography";
 import IconButton from "@mui/material/IconButton";
 import SendIcon from "@mui/icons-material/Send";
 import CurrencyYenIcon from "@mui/icons-material/CurrencyYen";
-import "../styles/CommentForm.css";
+import "../../styles/CommentForm.css";
 
 const CommentForm = () => {
   const [comments, setComments] = useState<string[]>([]);
