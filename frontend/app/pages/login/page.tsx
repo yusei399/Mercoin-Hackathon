@@ -1,5 +1,6 @@
 "use client";
 import React, { useEffect, useState } from "react";
+import { useMetaMask } from "@/app/context/MetaMaskContextProvider";
 import Button from "@mui/material/Button";
 import { executeMint, getMetaMaskAddress } from "@/app/api/metamask";
 
@@ -15,10 +16,6 @@ const MetaMask = () => {
     }
   };
 
-  useEffect(() => {
-    fetchMetaMaskAddress();
-  }, []);
-
   const handleMint = async () => {
     try {
       await executeMint(1, metaMaskAddress);
@@ -30,6 +27,9 @@ const MetaMask = () => {
 
   return (
     <div>
+      <Button variant="contained" onClick={fetchMetaMaskAddress}>
+        Log in with MetaMask
+      </Button>
       <p>MetaMask Address: {metaMaskAddress}</p>
       <Button variant="contained" onClick={handleMint}>
         Execute Mint
