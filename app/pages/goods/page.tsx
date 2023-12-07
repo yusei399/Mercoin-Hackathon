@@ -1,5 +1,5 @@
 "use client";
-import {Box, Avatar, Card, CardActions, CardContent, CardHeader, CardMedia, Typography, Button } from '@mui/material';
+import {Box, Avatar, Card, CardActions, CardContent, CardHeader, CardMedia, Typography, Button, Collapse } from '@mui/material';
 import React from 'react';
 import { red } from '@mui/material/colors';
 import Image from 'next/image';
@@ -75,15 +75,17 @@ const Site = () => {
 			  image={item.image}
 			  alt={item.content}
 			/>
+			<CardActions disableSpacing>
+			  <FavoriteIcon />
+			  <Button size="small" >交換</Button>
+			</CardActions>
+			<Collapse in={true} timeout="auto" unmountOnExit>
 			<CardContent>
 			  <Typography>
 				{item.content}
 			  </Typography>
 			</CardContent>
-			<CardActions disableSpacing>
-			  <FavoriteIcon />
-			  <Button size="small" >交換</Button>
-			</CardActions>
+			</Collapse>
 		  </Card>
 		))}
 	  </Box>
