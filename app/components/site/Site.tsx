@@ -1,8 +1,9 @@
 "use client";
-import { Avatar, Card, CardHeader } from '@mui/material';
+import { Avatar, Card, CardActions, CardContent, CardHeader, CardMedia, Typography } from '@mui/material';
 import React from 'react';
 import { red } from '@mui/material/colors';
 import Image from 'next/image';
+import FavoriteIcon from '@mui/icons-material/Favorite';
 
 
 
@@ -18,6 +19,20 @@ const Site = () => {
 					</Avatar>
 				}
 			/>
+			<CardMedia
+				component="img"
+				height="194"
+				image=""
+				alt="Paella dish"
+			/>
+			<CardContent>
+				<Typography>
+					test content
+				</Typography>
+			</CardContent>
+			<CardActions disableSpacing>
+				<FavoriteIcon />
+			</CardActions>
 		</Card>
 		</>
 	);

@@ -5,12 +5,10 @@ import Vtuber from "./components/user/vtuber";
 import VideoIndex from "./components/VideoIndex";
 import CommentForm from "./components/CommentForm";
 import "./styles/Home.css";
+import Site from "./components/site/Site";
 
 export default function Home() {
   return (
-    <div className="home-container">
-      <VideoIndex />
-      <CommentForm />
-    </div>
+    <Site />
   );
 }
