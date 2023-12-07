@@ -1,19 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
+import VideoIndex from "../components/VideoIndex";
+import CommentForm from "../components/CommentForm";
 
-const VideoPage = () => {
+export default function Home() {
   return (
     <div>
-      <iframe
-        width="560"
-        height="315"
-        src="https://www.youtube.com/embed/ibZYkjYiADQ?si=0_qXzp5ax3PFyswx"
-        title="YouTube video player"
-        frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        allowfullscreen
-      ></iframe>
+      <VideoIndex />
+      <CommentForm />
     </div>
   );
-};
-
-export default VideoPage;
+}
