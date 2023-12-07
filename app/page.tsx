@@ -1,12 +1,13 @@
-import Image from "next/image";
-import VideoPage from "./pages/video";
-import Matamask from "./components/Matamask";
+import React, { useState } from "react";
+import VideoIndex from "./components/VideoIndex";
+import CommentForm from "./components/CommentForm";
+import "./styles/Home.css";
 
 export default function Home() {
   return (
-    <div>
-      {/* <VideoPage /> */}
-      <Matamask />
+    <div className="home-container">
+      <VideoIndex />
+      <CommentForm />
     </div>
   );
 }
