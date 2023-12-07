@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import VideoIndex from "../components/VideoIndex";
-import CommentForm from "../components/CommentForm";
+import VideoIndex from "../components/video/VideoIndex";
+import CommentForm from "../components/video/CommentForm";
 
 export default function VideoPage() {
   return (
