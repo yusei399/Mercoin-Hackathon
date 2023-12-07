@@ -2,11 +2,12 @@ import React, { useState } from "react";
 import VideoIndex from "../components/VideoIndex";
 import CommentForm from "../components/CommentForm";
 
-export default function Home() {
+export default function VideoPage() {
   return (
-    <div>
+    <div className="home-container">
       <VideoIndex />
       <CommentForm />
     </div>
   );
 }
+
