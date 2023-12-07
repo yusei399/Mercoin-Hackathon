@@ -1,14 +1,16 @@
 .comment-container {
+  position: relative;
   display: flex;
   width: 400px;
-  height: 500px;
+  height: 600px;
   flex-direction: column;
   align-items: center;
-  margin-top: 20px;
+  margin-top: 0px;
 }
 
 .comment-list {
-  width: 320px;
+  width: 350px;
+  height: 430px;
   margin-bottom: 20px;
 }
 
@@ -18,21 +20,33 @@
   margin-bottom: 10px;
 }
 
+.superchat-form,
 .comment-form {
   width: 100%;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  margin-top: auto;
+  position: absolute;
+  bottom: 0;
 }
 
-.comment-input {
+.superchat-form {
+  margin-bottom: 0px; /* Adjust this value */
+}
+
+.comment-form {
+  margin-bottom: 70px; /* Adjust this value */
+}
+
+.comment-input,
+.superchat-input {
   width: 10px;
   flex-grow: 1;
   margin-right: 10px;
 }
 
-.comment-button {
+.comment-button,
+.superchat-button {
   flex-shrink: 0;
 }
