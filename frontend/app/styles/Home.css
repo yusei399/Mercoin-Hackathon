@@ -1,0 +1,28 @@
+.home-container {
+  display: flex;
+  flex-wrap: wrap; /* レスポンシブ対応のために折り返しを許可 */
+  justify-content: space-between;
+  max-width: 1400px;
+  margin: 10px auto; /* 中央揃えにするために左右のマージンをautoに設定 */
+  padding: 50px;
+  background-color: white;
+  border-radius: 15px;
+  gap: 20px; /* コンテンツ間の隙間を設定 */
+}
+
+
+/* モバイルデバイス用のスタイル */
+@media (max-width: 600px) {
+  .home-container {
+    flex-direction: column; /* モバイルでは縦並びに変更 */
+    padding: 20px;
+  }
+}
+
+/* タブレットデバイス用のスタイル */
+@media (min-width: 601px) and (max-width: 900px) {
+  .home-container {
+    flex-direction: row;
+    justify-content: space-around; /* タブレットではコンテンツが広がりすぎないように調整 */
+  }
+}
