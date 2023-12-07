@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import Avatar from "@mui/joy/Avatar";
 import Button from "@mui/material/Button";
 
-import "../styles/VideoIndex.css";
+import "../../styles/VideoIndex.css";
 
 const VideoIndex = () => {
   const videoTitle = "動画タイトル";
@@ -24,7 +24,7 @@ const VideoIndex = () => {
       <div className="video-info">
         <h2>{videoTitle}</h2>
         <div className="left-info">
-          <Avatar src="" size="lg" />
+          <Avatar src="/葛葉.png" size="lg" />
           <p className="liver-name"> 葛葉 </p>
         </div>
         <div className="right-info">

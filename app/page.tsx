@@ -1,14 +1,17 @@
 import Image from "next/image";
-import VideoPage from "./pages/video";
+import VideoPage from "./pages/video/page";
 import Matamask from "./components/wallet/Matamask";
-import Vtuber from "./components/user/vtuber";
-import VideoIndex from "./components/VideoIndex";
-import CommentForm from "./components/CommentForm";
+import Vtuber from "./pages/user/page";
+import VideoIndex from "./components/video/VideoIndex";
+import CommentForm from "./components/video/CommentForm";
+import Link from "next/link";
 import "./styles/Home.css";
-import Site from "./components/site/Site";
 
 export default function Home() {
   return (
-    < VideoPage />
+    <div className="home-container">
+      <VideoIndex />
+      <CommentForm />
+    </div>
   );
 }
