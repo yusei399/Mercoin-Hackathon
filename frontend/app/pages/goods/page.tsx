@@ -19,49 +19,49 @@ const Site = () => {
 			image : "/store_batch.png",
 			title: "EXゲーマーズ5周年記念",
 			content: "【EXゲーマーズ5周年記念】マウスパッド",
-			price: "0.001token",
+			price: "¥ 1,800",
 		},
 		{
 			image : "/ステッカー.png",
 			title: "EXゲーマーズ5周年記念",
 			content: "【EXゲーマーズ5周年記念】ステッカーセット",
-			price : "0.001token",
+			price : "¥ 2,800",
 		},
 		{
 			image : "/ヘアクリップ.png",
 			title : "EXゲーマーズ5周年記念",
 			content: "【EXゲーマーズ5周年記念】ヘアクリップ",
-			price: "0.001token",
+			price: "¥ 3,800",
 		},
 		{
 			image: "/アクリルスタンド.png",
 			title: "EXゲーマーズ5周年記念",
 			content: "【EXゲーマーズ5周年記念】アクリルスタンド",
-			price: "0.001token",
+			price: "¥ 1,700",
 		},
 		{
 			image : "/ランダムチェキ風.png",
 			title: "EXゲーマーズ5周年記念",
 			content: "【EXゲーマーズ5周年記念】ランダムチェキ風カード",
-			price : "0.001token",
+			price : "¥ 3,800",
 		},
 		{
 			image : "/アクリルパネル.png",
 			title: "にじフェス2023",
 			content: "【Kuzuha Solo Event ”Kaleidoscope”】B6アクリルパネル【にじフェス2023】",
-			price : "0.001token",
+			price : "¥ 2,600",
 		},
 		{
 			image : "/バッチセット.png",
 			title : "にじフェス2023",
 			content : "【【Kuzuha Solo Event ”Kaleidoscope”】缶バッジセット【にじフェス2023】",
-			price : "0.001token",
+			price : "¥ 2,500",
 		},
 		{
 			image : "/オルゴール.png",
 			title : "ChroNoiR 5th ANNIVERSARY",
 			content : "【ChroNoiR 5th ANNIVERSARY】オルゴール",
-			price : "0.001token",
+			price : "¥ 5,800",
 		}
 		
 	]
