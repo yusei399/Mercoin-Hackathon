@@ -2,6 +2,7 @@
 import React from "react";
 import { useMetaMask } from "@/app/context/MetaMaskContextProvider";
 import Button from "@mui/material/Button";
+import { useEffect, useState } from "react";
 import {
   executeMint,
   getMetaMaskBalance,

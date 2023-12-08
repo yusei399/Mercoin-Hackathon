@@ -16,7 +16,6 @@ import "../../styles/CommentForm.css";
 import { MenuItem, Select } from "@mui/material";
 import { useMetaMask } from "@/app/context/MetaMaskContextProvider";
 import Link from "next/link";
-import { executeMint } from "@/app/api/metamask";
 
 const CommentForm = () => {
   const [comments, setComments] = useState<
@@ -26,8 +25,33 @@ const CommentForm = () => {
   const [superChatAmount, setSuperChatAmount] = useState<string>("");
   const { metaMaskAddress, isLoggedIn } = useMetaMask();
   const [metaMaskBalance, setMetaMaskBalance] = useState<number>(5000);
+  const [sentiment, setSentiment] = useState('');
+  const [model, setModel] = useState("text-davinci-002");
+
+  const analyzeCommentSentiment = async (comment) => {
+    const apiKey = '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'; 
+    const URL = "https://api.openai.com/v1/engines/" + model + "/completions";
+    try {
+      const response = await fetch(URL, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${apiKey}`,
+        },
+        body: JSON.stringify({
+          prompt: `次の文章はポジティブですか、ネガティブですか？\n\n「${comment}」\n\n答え: `,
+          max_tokens: 60,
+        }),
+      });
+      const data = await response.json();
+      console.log(data);
+    } catch (error) {
+      console.error('感情分析エラー:', error);
+    }
+  };
 
   const addComment = (comment: string) => {
+    analyzeCommentSentiment(comment);
     setComments([...comments, { text: comment }]);
     setCommentText("");
   };
@@ -98,6 +122,7 @@ const CommentForm = () => {
                 <Typography fontSize={10}>じみー</Typography>
                 <Typography level="body-sm" noWrap fontSize={15}>
                   {comment.text}
+                  {sentiment && <p>感情: {sentiment}</p>}
                 </Typography>
               </ListItemContent>
             </ListItem>
