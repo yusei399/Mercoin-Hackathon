@@ -12,8 +12,8 @@ import { IconButton } from "@mui/material";
 import VideoCameraBackIcon from "@mui/icons-material/VideoCameraBack";
 
 const VideoIndex = () => {
-  const videoTitle = "動画タイトル";
-  const videoDescription = "とってもおもしろい動画 \n ぜったいに見てね";
+  const videoTitle = "KZHCUP in STREET FIGHTER 6 本配信";
+  const videoDescription = `1,692,880 回視聴  2023/11/26 にライブ配信\n【協力】カプコン\n『ストリートファイター6\n ©CAPCOM CO., LTD. 2023 ALL RIGHTS RESERVED.`
 
   const [isSubscribed, setIsSubscribed] = useState<boolean>(false);
   const [isLiked, setIsLiked] = useState<boolean>(false);
@@ -56,7 +56,7 @@ const VideoIndex = () => {
         <iframe
           width="560"
           height="315"
-          src="https://www.youtube.com/embed/xVPXzp99a-k?si=nc87v6d0wlRqgZZw"
+          src="https://www.youtube.com/embed/83CbLxuFIKM?si=qTfwO4TbAp2pTr7o"
           title="YouTube video player"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
           allowfullscreen

@@ -30,31 +30,63 @@ const MercariItems = () => {
   ];
 
   return (
-    <div>
-      <h2>商品一覧</h2>
-      <div style={{ display: "flex" }}>
+    <div
+      style={{
+        backgroundColor: "#f0f0f0",
+        borderRadius: "8px",
+        padding: "15px",
+        boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
+      }}
+    >
+      <h2
+        style={{
+          margin: "5px 10px",
+          fontSize: "18px",
+          fontWeight: "bold",
+          borderBottom: "1px solid #ccc",
+          paddingBottom: "10px",
+        }}
+      >
+        関連商品
+      </h2>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+          paddingTop: "10px",
+        }}
+      >
         {items.map((item, index) => (
-          <div key={index} style={{ margin: "0 10px", position: "relative" }}>
+          <div
+            key={index}
+            style={{
+              flex: "0 0 150px",
+              margin: "0 10px",
+              position: "relative",
+            }}
+          >
             <a href={item.url} target="_blank" rel="noopener noreferrer">
               <img
                 src={item.image}
                 alt={`商品サムネイル ${index + 1}`}
-                style={{ width: "150px", height: "150px" }}
+                style={{
+                  width: "150px",
+                  height: "150px",
+                  objectFit: "cover",
+                  boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
+                }}
               />
             </a>
-            <div
+            <p
               style={{
-                position: "absolute",
-                bottom: 0,
-                left: 0,
-                right: 0,
-                background: "rgba(255, 255, 255, 0.7)",
-                padding: "10px",
-                textAlign: "center",
+                margin: "0px",
+                fontWeight: "bold",
+                marginBottom: "10px",
+                marginLeft: "5px",
               }}
             >
-              <p style={{ margin: "0px", fontWeight: "bold" }}>{item.price}円</p>
-            </div>
+              {item.price}円
+            </p>
             <p style={{ margin: 0 }}>{item.title}</p>
           </div>
         ))}
