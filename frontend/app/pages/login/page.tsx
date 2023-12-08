@@ -1,5 +1,5 @@
-import { MetaMaskProvider } from "./context/MetaMaskContextProvider";
-import MetaMaskAuth from "./components/login/MetaMaskAuth";
+import { MetaMaskProvider } from "@/app/context/MetaMaskContextProvider";
+import MetaMaskAuth from "@/app/components/login/MetaMaskAuth";
 import Link from "next/link";
 
 export default function Home() {
