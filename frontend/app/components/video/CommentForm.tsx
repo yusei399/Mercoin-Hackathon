@@ -19,6 +19,7 @@ const CommentForm = () => {
   const [comments, setComments] = useState<Array<{ text: string; amount?: number }>>([]);
   const [commentText, setCommentText] = useState<string>("");
   const [superChatAmount, setSuperChatAmount] = useState<string>("");
+
   const listRef = useRef(null);
 
   useEffect(() => {
