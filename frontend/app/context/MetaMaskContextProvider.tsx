@@ -26,12 +26,14 @@ const MetaMaskContext = createContext<MetaMaskContextProps | undefined>(
 export const MetaMaskProvider: React.FC<MetaMaskProviderProps> = ({
   children,
 }) => {
-  const [metaMaskAddress, setMetaMaskAddress] = useState<string>(
-    localStorage.getItem("metaMaskAddress") || ""
-  );
-  const [isLoggedIn, setIsLoggedIn] = useState<boolean>(
-    localStorage.getItem("isLoggedIn") === "true"
-  );
+  const [metaMaskAddress, setMetaMaskAddress] = useState<string>('');
+  const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
+  useEffect(() => {
+    const address = localStorage.getItem('metaMaskAddress') || '';
+    const loggedIn = localStorage.getItem('isLoggedIn') === 'true';
+    setMetaMaskAddress(address);
+    setIsLoggedIn(loggedIn);
+  }, []);
 
   const loginWithMetaMask = async () => {
     try {

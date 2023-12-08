@@ -43,32 +43,22 @@ const MetaMaskAuth = () => {
   };
 
   return (
-    <div>
-      {!isLoggedIn ? (
-        <Button variant="contained" onClick={loginWithMetaMask}>
-          Log in with MetaMask
+    <div style={{ textAlign: 'center', marginTop: '20px' }}> 
+    {!isLoggedIn ? (
+      <Button variant="contained" onClick={loginWithMetaMask}>
+        Log in with MetaMask
+      </Button>
+    ) : (
+      <div>
+        <Button variant="contained" onClick={handleMint} style={{ marginRight: '10px' }}> 
+          Execute Mint
         </Button>
-      ) : (
-        <div>
-          <p>MetaMask Address: {metaMaskAddress}</p>
-          <p>残高: {metaMaskBalance}</p>
-          <p>
-            トランザクション:{" "}
-            {sortedTransactions.map((transaction, index) => (
-              <div key={index}>
-                Block: {transaction.blockNumber}, Value: {transaction.value}
-              </div>
-            ))}
-          </p>
-          <Button variant="contained" onClick={handleMint}>
-            Execute Mint
-          </Button>
-          <Button variant="contained" onClick={logout}>
-            Log out
-          </Button>
-        </div>
-      )}
-    </div>
+        <Button variant="contained" onClick={logout}>
+          Log out
+        </Button>
+      </div>
+    )}
+  </div>
   );
 };
 
