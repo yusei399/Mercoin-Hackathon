@@ -25,14 +25,6 @@ const CommentForm = () => {
   >([]);
   const [commentText, setCommentText] = useState<string>("");
   const [superChatAmount, setSuperChatAmount] = useState<string>("");
-
-  const listRef = useRef(null);
-
-  useEffect(() => {
-    if (listRef.current) {
-      listRef.current.scrollTop = listRef.current.scrollHeight;
-    }
-  }, [comments]);
   const { metaMaskAddress, isLoggedIn } = useMetaMask();
 
   const addComment = (comment: string) => {
