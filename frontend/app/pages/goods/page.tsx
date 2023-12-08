@@ -1,12 +1,19 @@
 "use client";
-import {Box, Avatar, Card, CardActions, CardContent, CardHeader, CardMedia, Typography, Button, Collapse } from '@mui/material';
+import {Box, Avatar, Card, CardActions, CardContent, CardHeader, CardMedia, Typography, Button, Collapse, Tabs, AppBar, Tab, Toolbar } from '@mui/material';
 import React from 'react';
 import { red } from '@mui/material/colors';
-import Image from 'next/image';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import { useState } from 'react';
+import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
+import IconButton from '@mui/material/IconButton';
+import FormatAlignJustifyIcon from '@mui/icons-material/FormatAlignJustify';
 
 const Site = () => {
+	const [sidebarOpen, setSidebarOpen] = useState(false);
+
+	const toggleSidebar = () => {
+		setSidebarOpen(!sidebarOpen);
+	};
 	const data =[
 		{
 			image : "/store_batch.png",
@@ -60,13 +67,38 @@ const Site = () => {
 	]
 
 	const [favorites, setFavorites] = useState(Array(data.length).fill(false));
+	const [tabValue, setTabValue] = useState(0);
 
-	// フェイバリットの状態を切り替える関数
+	const handleTabChange = (event, newValue) => {
+	  setTabValue(newValue);
+	};
+
 	const toggleFavorite = (index) => {
 	  setFavorites(favorites.map((fav, i) => (i === index ? !fav : fav)));
 	};
 
 	return (
+		<>
+			<Box sx={{ width: '100%' }}>
+			<Box sx={{
+				display: 'flex',
+				alignItems: 'center',
+				p: 1,
+				bgcolor: 'white',
+				borderBottom: 1,
+				borderColor: 'divider'
+			}}>
+				<IconButton edge="start" color="inherit" aria-label="menu">
+					<FormatAlignJustifyIcon />
+				</IconButton>
+				<IconButton edge="start" color="inherit" aria-label="menu">
+				<AddShoppingCartIcon sx={{ color: 'blue' }} />
+				</IconButton>
+				<Tabs value={tabValue} onChange={handleTabChange} aria-label="item tabs" indicatorColor="primary" textColor="primary" sx={{ '.MuiTabs-indicator': { backgroundColor: 'blue' } }}>
+				<Tab label="限定グッズ" sx={{ color: 'blue', fontWeight: 'bold' }} />
+				<Tab label="メルカリで探す" sx={{ color: 'blue', fontWeight: 'bold' }} />
+				</Tabs>
+			</Box>
 		<Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 2, justifyContent: 'center' , p: 3,}}>
 		{data?.map((item, index) => (
 		  <Card key={index} sx={{ maxWidth: 345, flexBasis: { xs: '100%', sm: 'calc(50% - 16px)', md: 'calc(33.333% - 16px)' }, m: 2,  boxShadow: 3,}}>
@@ -86,8 +118,8 @@ const Site = () => {
 			  sx={{
 				transition: "transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out",
 				"&:hover": {
-				  transform: "scale(1.15) translateY(-5px)", // Enlarges and moves the image up
-				  boxShadow: "0px 10px 20px rgba(0, 0, 0, 0.2)" // Adds shadow for depth
+				  transform: "scale(1.15) translateY(-5px)", 
+				  boxShadow: "0px 10px 20px rgba(0, 0, 0, 0.2)"
 				}
 			  }}
 			/>
@@ -113,6 +145,8 @@ const Site = () => {
 		  </Card>
 		))}
 	  </Box>
+	</Box>
+	</>
 	);
   }
 
