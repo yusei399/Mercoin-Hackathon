@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { useMetaMask } from "@/app/context/MetaMaskContextProvider";
 import Button from "@mui/material/Button";
 import {
