@@ -29,7 +29,7 @@ const CommentForm = () => {
   const [model, setModel] = useState("text-davinci-002");
 
   const analyzeCommentSentiment = async (comment) => {
-    const apiKey = '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'; 
+    const apiKey = ''; 
     const URL = "https://api.openai.com/v1/engines/" + model + "/completions";
     try {
       const response = await fetch(URL, {
