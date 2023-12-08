@@ -7,6 +7,7 @@ import {
   getMetaMaskBalance,
   getMetaMaskTransactions,
 } from "@/app/api/metamask";
+import { useEffect, useState } from "react";
 
 const MetaMaskAuth = () => {
   const { metaMaskAddress, isLoggedIn, loginWithMetaMask, logout } =
