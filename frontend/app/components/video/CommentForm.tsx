@@ -16,6 +16,7 @@ import "../../styles/CommentForm.css";
 import { MenuItem, Select } from "@mui/material";
 import { useMetaMask } from "@/app/context/MetaMaskContextProvider";
 import Link from "next/link";
+import ChartMini from "../chart/chartMini";
 import { executeMint } from "@/app/api/metamask";
 
 const CommentForm = () => {
@@ -156,7 +157,7 @@ const CommentForm = () => {
           borderRadius: "8px",
           boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
           width: "330px",
-          margin: "150px 50px 0 0",
+          margin: "150px 70px 0 30px",
         }}
       >
         <p
@@ -168,29 +169,28 @@ const CommentForm = () => {
             paddingBottom: "5px",
           }}
         >
-          Wallet
+          トークン残高
         </p>
         <div
           style={{
             display: "flex",
             flexDirection: "row",
             alignItems: "center",
+            justifyContent: "space-between", // 間隔を均等に配置
+            margin: "7px",
           }}
         >
           <p
-            style={{ margin: "10px 0 5px 0", fontSize: "16px", color: "#333" }}
+            style={{ fontSize: "28px", fontWeight: "bold", marginLeft: "15px" }}
           >
-            トークン残高: {metaMaskBalance} MRC
+            {metaMaskBalance} MRC
           </p>
           <Link href="/pages/user" style={{ textDecoration: "none" }}>
-            <Button
-              variant="contained"
-              style={{ marginTop: "5px", marginLeft: "13px" }}
-            >
-              Tokenを管理
-            </Button>
+            <Button variant="contained">Tokenを管理</Button>
           </Link>
         </div>
+
+        <ChartMini />
       </div>
     </div>
   );

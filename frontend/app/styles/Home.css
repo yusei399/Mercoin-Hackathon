@@ -10,7 +10,6 @@
   gap: 20px; /* コンテンツ間の隙間を設定 */
 }
 
-
 /* モバイルデバイス用のスタイル */
 @media (max-width: 600px) {
   .home-container {
@@ -25,4 +24,9 @@
     flex-direction: row;
     justify-content: space-around; /* タブレットではコンテンツが広がりすぎないように調整 */
   }
+}
+.header {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
 }

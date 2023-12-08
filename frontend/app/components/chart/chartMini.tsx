@@ -39,7 +39,7 @@ const data = {
   ],
   datasets: [
     {
-      label: "Token rate",
+      label: "葛葉さんのToken rate",
       fill: false,
       lineTension: 0.1,
       backgroundColor: "rgba(75,192,192,0.4)",
@@ -75,10 +75,10 @@ const options = {
   },
 };
 
-const Chart = () => (
-  <div style={{ height: "200px", width: "400px" }}>
+const ChartMini = () => (
+  <div style={{ height: "200px", width: "350px", margin: "30px 40px 0px 0px" }}>
     <Line data={data} options={options} />
   </div>
 );
 
-export default Chart;
+export default ChartMini;

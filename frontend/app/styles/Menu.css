@@ -1,0 +1,52 @@
+.icon-buttons-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+}
+
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: -250px; /* Start offscreen to the left */
+  width: 250px;
+  height: 100%;
+  background-color: #fff;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+  z-index: 100;
+  padding-top: 20px;
+  transition: left 0.3s ease; /* Transition for sliding effect */
+}
+
+.sidebar-open {
+  left: 0; /* Bring the sidebar into view */
+}
+
+.menu-item {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+  color: blue; /* Text color for the menu items */
+}
+
+.menu-item svg {
+  margin-right: 15px;
+  color: grey; /* Icon color */
+}
+
+.menu-item-close-icon {
+  justify-content: flex-end;
+  cursor: pointer;
+  /* Additional styles if needed */
+}
+
+/* Additional styles for the links to remove default text decoration and color */
+.menu-item a {
+  text-decoration: none;
+  color: inherit; /* This will make the text color inherit from the parent .menu-item */
+  display: flex;
+  align-items: center;
+  width: 100%; /* Ensure the clickable area extends to the full width of the sidebar */
+}
