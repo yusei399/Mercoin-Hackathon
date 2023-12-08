@@ -14,11 +14,11 @@ export default function Home() {
       </div>
       <div style={{ display: "flex", width: "90%", margin: "0 auto" }}>
         <MetaMaskProvider>
-          <div style={{ flex: "0 0 65%", margin: "30px 20px" }}>
+          <div style={{ flex: "0 0 65%", margin: "10px 20px" }}>
             <VideoIndex />
             <MercariItems />
           </div>
-          <div style={{ flex: "0 0 10%", margin: "40px 20px" }}>
+          <div style={{ flex: "0 0 10%", margin: "5px 20px" }}>
             <CommentForm />
           </div>
         </MetaMaskProvider>
