@@ -1,3 +1,5 @@
+import Web3 from "web3";
+
 export const executeMint = async (value: number, toAddress: string) => {
   try {
     const response = await fetch(
@@ -30,5 +32,56 @@ export const getMetaMaskAddress = async (): Promise<string> => {
   } else {
     console.error("MetaMask not detected. Please install MetaMask.");
     throw new Error("MetaMask not detected");
+  }
+};
+
+export const getMetaMaskBalance = async (
+  toAddress: string
+): Promise<number> => {
+  let web3;
+  if (typeof window !== "undefined" && window.ethereum) {
+    web3 = new Web3(window.ethereum);
+  }
+  try {
+    const balanceWei = await web3.eth.getBalance(toAddress);
+    const balanceEther = web3.utils.fromWei(balanceWei, "ether");
+    return parseFloat(balanceEther);
+  } catch (error) {
+    console.error(`Failed to get balance for address ${toAddress}: `, error);
+    throw error;
+  }
+};
+
+export const getMetaMaskTransactions = async (
+  toAddress: string
+): Promise<number[]> => {
+  let web3;
+  if (typeof window !== "undefined" && window.ethereum) {
+    web3 = new Web3(window.ethereum);
+  }
+
+  try {
+    const transactions = await web3.eth.getTransactionCount(
+      toAddress,
+      "latest"
+    );
+    const transactionList = [];
+
+    for (let i = 0; i < transactions; i++) {
+      const transaction = await web3.eth.getTransactionFromBlock("latest", i);
+      const valueInEther = web3.utils.fromWei(transaction.value, "ether");
+      const value = parseFloat(valueInEther);
+
+      if (value !== 0) {
+        transactionList.push(value);
+      }
+    }
+    return transactionList;
+  } catch (error) {
+    console.error(
+      `Failed to get balance and transactions for address ${toAddress}: `,
+      error
+    );
+    throw error;
   }
 };
