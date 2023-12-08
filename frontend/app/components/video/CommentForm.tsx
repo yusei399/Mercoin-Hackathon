@@ -17,7 +17,6 @@ import { MenuItem, Select } from "@mui/material";
 import { useMetaMask } from "@/app/context/MetaMaskContextProvider";
 import Link from "next/link";
 import { executeMint } from "@/app/api/metamask";
-import { exec } from "child_process";
 
 const CommentForm = () => {
   const [comments, setComments] = useState<
@@ -26,6 +25,7 @@ const CommentForm = () => {
   const [commentText, setCommentText] = useState<string>("");
   const [superChatAmount, setSuperChatAmount] = useState<string>("");
   const { metaMaskAddress, isLoggedIn } = useMetaMask();
+  const [metaMaskBalance, setMetaMaskBalance] = useState<number>(5000);
 
   const addComment = (comment: string) => {
     setComments([...comments, { text: comment }]);
@@ -38,10 +38,12 @@ const CommentForm = () => {
       ...comments,
       { text: `${amount}円のスーパーチャット`, amount },
     ]);
-    if (isLoggedIn) {
-      executeMint(amount * superChatRefundRate, metaMaskAddress);
-      console.log("スーパーチャットを送信しました");
-    }
+    let newBalance = metaMaskBalance + amount * 0.01;
+    setMetaMaskBalance(newBalance);
+    // if (isLoggedIn) {
+    //   executeMint(amount * superChatRefundRate, metaMaskAddress);
+    //   console.log("スーパーチャットを送信しました");
+    // }
     setSuperChatAmount("");
   };
 
@@ -145,6 +147,50 @@ const CommentForm = () => {
         >
           <CurrencyYenIcon />
         </IconButton>
+      </div>
+      <div
+        className="metamask-info"
+        style={{
+          backgroundColor: "#f0f0f0",
+          padding: "15px",
+          borderRadius: "8px",
+          boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
+          width: "330px",
+          margin: "150px 50px 0 0",
+        }}
+      >
+        <p
+          style={{
+            margin: "5px 0",
+            fontSize: "18px",
+            fontWeight: "bold",
+            borderBottom: "1px solid #ccc",
+            paddingBottom: "5px",
+          }}
+        >
+          Wallet
+        </p>
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "row",
+            alignItems: "center",
+          }}
+        >
+          <p
+            style={{ margin: "10px 0 5px 0", fontSize: "16px", color: "#333" }}
+          >
+            トークン残高: {metaMaskBalance} MRC
+          </p>
+          <Link href="/pages/user" style={{ textDecoration: "none" }}>
+            <Button
+              variant="contained"
+              style={{ marginTop: "5px", marginLeft: "13px" }}
+            >
+              Tokenを管理
+            </Button>
+          </Link>
+        </div>
       </div>
     </div>
   );
